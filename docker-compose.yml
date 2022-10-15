@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+
+  mysql:
+    container_name: mysql
+    image: mysql:8
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: database
+      MYSQL_USER: develop
+      MYSQL_PASSWORD: password
+
+  schemaspy:
+    container_name: schemaspy
+    image: schemaspy/schemaspy:snapshot
+    environment:
+      SCHEMASPY_OUTPUT: /output
+    volumes:
+      - ./output:/output
+    depends_on:
+      - mysql
+    command: >
+      java -jar schemaspy.jar -t mysql -host mysql -port 3306 -db database -u develop -p password -s database -connprops allowPublicKeyRetrieval\\=true useSSL\\=false        
+    tty: true
