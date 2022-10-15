@@ -1,7 +1,6 @@
 version: '3.9'
 
 services:
-
   mysql:
     container_name: mysql
     image: mysql:8
@@ -22,9 +21,8 @@ services:
     environment:
       SCHEMASPY_OUTPUT: /output
     volumes:
+      - ./docker/schemaspy.properties:/schemaspy.properties
       - ./output:/output
     depends_on:
       - mysql
-    command: >
-      java -jar schemaspy.jar -t mysql -host mysql -port 3306 -db database -u develop -p password -s database -connprops allowPublicKeyRetrieval\\=true useSSL\\=false        
     tty: true
