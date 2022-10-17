@@ -1,7 +1,7 @@
 # docker-schemaspy
-[ [English]() | [日本語] ]
+[ [English](https://github.com/pp-develop/docker-schemaspy/blob/main/README.md) | [日本語] ]
 
-## About schemaspy
+## About SchemaSpy
 https://schemaspy.readthedocs.io/en/latest/index.html
 
 ## Overview
