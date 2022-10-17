@@ -18,11 +18,11 @@ services:
   schemaspy:
     container_name: schemaspy
     image: schemaspy/schemaspy:snapshot
-    environment:
-      SCHEMASPY_OUTPUT: /output
     volumes:
       - ./docker/schemaspy.properties:/schemaspy.properties
       - ./output:/output
     depends_on:
       - mysql
     tty: true
+    environment:
+      SCHEMASPY_OUTPUT: /output
