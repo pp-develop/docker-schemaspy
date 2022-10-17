@@ -5,10 +5,10 @@
 https://schemaspy.readthedocs.io/en/latest/index.html
 
 ## Overview
-コンテナ実行時、ShemaSpyがデータベースのドキュメントをHTMLで出力します
+コンテナ実行時、ShemaSpyがデータベースのドキュメントを作成します
 
 ## Use
-1. 出力対象のデータベース接続情報を設定  
+1. 対象のデータベースを設定  
 `docker/schemaspy.properties`を編集して対象のデータベースを設定してください  
 [ShemaSpy Configuration](https://schemaspy.readthedocs.io/en/latest/started.html#configuration)
 2. コンテナ実行
