@@ -15,7 +15,7 @@ services:
       MYSQL_USER: develop
       MYSQL_PASSWORD: password
     healthcheck:
-     test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "develop", "-pdevelop"]
+     test: mysqladmin ping -h localhost -u $$MYSQL_USER -p$$MYSQL_PASSWORD
 
   schemaspy:
     container_name: schemaspy
@@ -24,5 +24,8 @@ services:
       - ./schemaspy/schemaspy.properties:/schemaspy.properties
       - ./output:/output
     tty: true
+    depends_on:
+      mysql:
+        condition: service_healthy
     environment:
       SCHEMASPY_OUTPUT: /output
