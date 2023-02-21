@@ -23,7 +23,7 @@ edit `/schemaspy/schemaspy.properties`
           container_name: schemaspy
           image: schemaspy/schemaspy:snapshot
           volumes:
-            - ./docker/schemaspy.properties:/schemaspy.properties
+            - ./schemaspy/schemaspy.properties:/schemaspy.properties
             - ./output:/output
           depends_on:
             - mysql
