@@ -6,6 +6,11 @@
 version: 2
 updates:
   - package-ecosystem: "docker" # See documentation for possible values
-    directory: "/docker" # Location of package manifests
+    directory: "/docker/mysql" # Location of package manifests
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "docker" # See documentation for possible values
+    directory: "/docker/schemaspy" # Location of package manifests
     schedule:
       interval: "daily"
