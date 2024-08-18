@@ -1,0 +1,1 @@
+FROM schemaspy/schemaspy:snapshot
